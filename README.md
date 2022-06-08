@@ -1,14 +1,23 @@
-## Micronaut 3.5.1 Documentation
+# Alticci sequence
 
-- [User Guide](https://docs.micronaut.io/3.5.1/guide/index.html)
-- [API Reference](https://docs.micronaut.io/3.5.1/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/3.5.1/guide/configurationreference.html)
-- [Micronaut Guides](https://guides.micronaut.io/index.html)
----
+A project to calculate a sequence using the following logic
 
-- [Shadow Gradle Plugin](https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow)
-## Feature http-client documentation
+```
+n=0 => a(0) = 0
+n=1 => a(1) = 1
+n=2 => a(2) = 1
+n>2 => a(n) = a(n-3) + a(n-2)
+```
 
-- [Micronaut HTTP Client documentation](https://docs.micronaut.io/latest/guide/index.html#httpClient)
+## Project 
+
+### What we are using
+* Micronaut
+* Java 17
+
+### Running
 
 
+```shell
+$ ./gradlew run
+```

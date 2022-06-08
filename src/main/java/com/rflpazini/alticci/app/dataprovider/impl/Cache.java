@@ -16,8 +16,8 @@ public class Cache implements CachePattern<Integer, Integer> {
     }
 
     @Override
-    public Integer put(final Integer id, final Integer entity) {
-        return CACHE.put(id, entity);
+    public void put(final Integer id, final Integer entity) {
+        CACHE.put(id, entity);
     }
 
     @Override

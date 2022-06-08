@@ -2,7 +2,7 @@ package com.rflpazini.alticci.domain.dataprovider;
 
 public interface CachePattern<K, V> {
 
-    V put(K id, V entity);
+    void put(K id, V entity);
 
     V get(Object key);
 
