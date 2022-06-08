@@ -17,9 +17,15 @@ n>2 => a(n) = a(n-3) + a(n-2)
 
 ### Running
 
-
 ```shell
 $ ./gradlew run
+```
+
+#### Docker
+We provided a simple running that uses docker. 
+
+```ssh
+$ docker build -t alticci . && docker run -dp 8080:8080 alticci
 ```
 
 ### Swagger
