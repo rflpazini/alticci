@@ -21,3 +21,10 @@ n>2 => a(n) = a(n-3) + a(n-2)
 ```shell
 $ ./gradlew run
 ```
+
+### Swagger
+
+After run the application, you can navigate to our swagger and make some tests on our API 🤓
+```
+http://localhost:8080/swagger/views/swagger-ui/#/calculate/get
+```
