@@ -6,7 +6,7 @@ import jakarta.inject.Inject;
 public class FIndSequenceNumberUseCase implements FindSequenceNumber {
 
     @Inject
-    CachePattern<Integer, Integer> cache;
+    private CachePattern<Integer, Integer> cache;
 
     public int search(final int number) {
         // check if number exist in cache
