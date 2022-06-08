@@ -1,4 +1,6 @@
 # Alticci sequence
+[![Build](https://github.com/rflpazini/alticci/actions/workflows/gradle.yml/badge.svg?branch=master&event=deployment)](https://github.com/rflpazini/alticci/actions/workflows/gradle.yml)
+
 
 A project to calculate a sequence using the following logic
 
