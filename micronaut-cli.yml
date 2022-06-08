@@ -1,5 +1,5 @@
 applicationType: default
-defaultPackage: com.rflpazini
+defaultPackage: com.rflpazini.alticci
 testFramework: junit
 sourceLanguage: java
 buildTool: gradle

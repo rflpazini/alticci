@@ -1,6 +1,7 @@
 plugins {
     id("com.github.johnrengelman.shadow") version "7.1.2"
     id("io.micronaut.application") version "3.4.1"
+    id("com.bmuschko.docker-remote-api") version "7.4.0" apply false
 }
 
 version = "0.1"
@@ -11,25 +12,30 @@ repositories {
 }
 
 dependencies {
+    annotationProcessor("io.micronaut:micronaut-graal")
     annotationProcessor("io.micronaut:micronaut-http-validation")
+    annotationProcessor("io.micronaut.openapi:micronaut-openapi")
+
     implementation("io.micronaut:micronaut-http-client")
     implementation("io.micronaut:micronaut-jackson-databind")
     implementation("jakarta.annotation:jakarta.annotation-api")
-    runtimeOnly("ch.qos.logback:logback-classic")
+    implementation("io.swagger.core.v3:swagger-annotations")
     implementation("io.micronaut:micronaut-validation")
+
+    runtimeOnly("ch.qos.logback:logback-classic")
 
 }
 
 
 application {
-    mainClass.set("com.rflpazini.Application")
+    mainClass.set("com.rflpazini.alticci.AlticciApplication")
 }
 java {
     sourceCompatibility = JavaVersion.toVersion("17")
     targetCompatibility = JavaVersion.toVersion("17")
 }
 
-graalvmNative.toolchainDetection = false
+graalvmNative.toolchainDetection = true
 micronaut {
     runtime("netty")
     testRuntime("junit5")
@@ -37,6 +43,15 @@ micronaut {
         incremental(true)
         annotations("com.rflpazini.*")
     }
+}
+
+dockerBuild {
+    platform.set("linux/amd64")
+}
+
+tasks.withType(JavaCompile) {
+    options.fork = true
+    options.forkOptions.jvmArgs << '-Dmicronaut.openapi.views.spec=rapidoc.enabled=true,swagger-ui.enabled=true,swagger-ui.theme=flattop'
 }
 
 
